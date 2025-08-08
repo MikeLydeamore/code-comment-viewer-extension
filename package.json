@@ -2,7 +2,7 @@
   "name": "code-comment-viewer",
   "displayName": "Code Comment Viewer",
   "description": "Show all HTML comments in the current file in a sidebar and highlight them in the editor.",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "engines": {
     "vscode": "^1.80.0"
   },
@@ -64,5 +64,11 @@
     "webpack-cli": "^6.0.1",
     "@vscode/test-cli": "^0.0.10",
     "@vscode/test-electron": "^2.5.2"
-  }
+  },
+  "publisher": "MichaelLydeamore",
+  "repository": {
+    "type": "git",
+    "url": "https://www.github.com/MikeLydeamore/code-comment-viewer-extension"
+  },
+  "icon": "logo.png"
 }
