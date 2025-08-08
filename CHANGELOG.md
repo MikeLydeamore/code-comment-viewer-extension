@@ -4,6 +4,10 @@ All notable changes to the "code-comment-viewer" extension will be documented in
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-## [Unreleased]
+## [0.1.1]
+
+- Update logo to be displayed at correct size
+
+## [0.1.0]
 
 - Initial release
