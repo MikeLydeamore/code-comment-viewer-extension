@@ -34,6 +34,18 @@ class CommentSidebarProvider implements vscode.WebviewViewProvider {
                     editor.setDecorations(decorationType, [range]);
                     setTimeout(() => decorationType.dispose(), 500);
                 }
+            } else if (msg.command === 'insertHtmlComment') {
+                const editor = vscode.window.activeTextEditor;
+                if (editor) {
+                    const position = editor.selection.active;
+                    const commentText = '<!--  -->';
+                    await editor.edit(editBuilder => {
+                        editBuilder.insert(position, commentText);
+                    });
+                    // Move cursor between the comment markers (after '<!-- ')
+                    const newPos = position.with(position.line, position.character + 5);
+                    editor.selection = new vscode.Selection(newPos, newPos);
+                }
             }
         });
 
@@ -84,9 +96,13 @@ class CommentSidebarProvider implements vscode.WebviewViewProvider {
                 </style>
             </head>
             <body>
+                <button id="insert-comment-btn" style="margin:8px 0 8px 0;display:block;width:100%;">Insert HTML Comment</button>
                 <div id="comments"></div>
                 <script>
                     const vscode = acquireVsCodeApi();
+                    document.getElementById('insert-comment-btn').onclick = () => {
+                        vscode.postMessage({ command: 'insertHtmlComment' });
+                    };
                     window.addEventListener('message', event => {
                         const msg = event.data;
                         if (msg.command === 'setComments') {
