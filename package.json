@@ -2,7 +2,7 @@
   "name": "code-comment-viewer",
   "displayName": "Code Comment Viewer",
   "description": "Show all HTML comments in the current file in a sidebar and highlight them in the editor.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "engines": {
     "vscode": "^1.80.0"
   },
